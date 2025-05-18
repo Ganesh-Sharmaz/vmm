@@ -2,6 +2,12 @@ import React from "react";
 import { app } from "@/app/firebaseConfig";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import ResultLandingPage from "./ResultLandingPage";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "VMM Scorecard & AIR | Vishal Mega Mart Result Analysis",
+  description: "View your VMM result with AIR, percentile, and performance breakdown. Share your fake glory and claim your spot in Vishal history.",
+};
 
 // Fetch data from Firestore
 async function getData(id: string) {
