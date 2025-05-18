@@ -12,12 +12,12 @@ export const QUESTIONS: QandA[] = [
     type: 'mcq',
     question: "When someone drops their wallet at Vishal Mega Mart, who would steal it first?",
     options: [
-      "Nigga",
-      "Bihari",
+      "CEO",
+      "Manager",
       "Aniket",
       "You"
     ],
-    correctAnswer: "Bihari"
+    correctAnswer: "Manager"
   },
   {
     type: 'mcq',
