@@ -261,7 +261,7 @@ const Auth: React.FC = () => {
                   name="username"
                   type="text"
                   autoComplete="username"
-                  className={`block w-full pl-10 pr-10 py-3 rounded-xl border-2 transition-all duration-200 ${
+                  className={`block w-full pl-10 pr-10 py-3 rounded-xl border-2 transition-all duration-200 text-gray-700 ${
                     getFieldStatus('username') === 'error' 
                       ? 'border-red-300 focus:border-red-500 focus:ring-red-200' :
                     getFieldStatus('username') === 'success'
@@ -310,7 +310,7 @@ const Auth: React.FC = () => {
                   name="password"
                   type={showPassword ? 'text' : 'password'}
                   autoComplete="current-password"
-                  className={`block w-full pl-10 pr-10 py-3 rounded-xl border-2 transition-all duration-200 ${
+                  className={`block w-full pl-10 pr-10 py-3 rounded-xl border-2 transition-all duration-200 text-gray-700 ${
                     getFieldStatus('password') === 'error' 
                       ? 'border-red-300 focus:border-red-500 focus:ring-red-200' :
                     getFieldStatus('password') === 'success'
