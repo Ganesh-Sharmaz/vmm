@@ -3,7 +3,7 @@ import { app } from "@/app/firebaseConfig";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import ResultLandingPage from "./ResultLandingPage";
 import { Metadata } from "next";
-
+import HomeLayout from "@/components/layouts/HomeLayout/HomeLayout";
 export const metadata: Metadata = {
   title: "VMM Scorecard & AIR | Vishal Mega Mart Result Analysis",
   description: "View your VMM result with AIR, percentile, and performance breakdown. Share your fake glory and claim your spot in Vishal history.",
@@ -53,7 +53,9 @@ const Page = async ({ params }: Props) => {
   
   const resolvedParams = await params;
   const data = await getData(resolvedParams.resultsId);
-  return <ResultLandingPage data={data} id={resolvedParams.resultsId}/>;
+  return <HomeLayout>
+    <ResultLandingPage data={data} id={resolvedParams.resultsId}/>
+  </HomeLayout>
 };
 
 export default Page;

@@ -1,6 +1,7 @@
 import React from "react";
 import NewsLandingPage from "./NewsLandingPage";
 import { Metadata } from "next";
+import HomeLayout from "@/components/layouts/HomeLayout/HomeLayout";
 
 export const metadata: Metadata = {
   title: "VMM Breaking News",
@@ -8,12 +9,12 @@ export const metadata: Metadata = {
 };
 
 interface Props {
-  params: Promise<{ newsId: string }> ;
+  params: Promise<{ newsId: string }>;
 }
 
 const Page = async ({ params }: Props) => {
   const resolvedParams = await params;
-  return <NewsLandingPage newsId={resolvedParams.newsId} />;
+  return <HomeLayout><NewsLandingPage newsId={resolvedParams.newsId} /></HomeLayout>
 };
 
 export default Page;

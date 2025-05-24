@@ -1,6 +1,7 @@
 import React from "react";
 import ExamPageComponent from "./ExamPageComponent";
 import { Metadata } from "next";
+import HomeLayout from "@/components/layouts/HomeLayout/HomeLayout";
 
 export const metadata: Metadata = {
   title: "VMM Security Guard Entrance Exam 2025",
@@ -8,7 +9,9 @@ export const metadata: Metadata = {
 };
 
 function page() {
-  return <ExamPageComponent />;
+  return <HomeLayout>
+    <ExamPageComponent />
+  </HomeLayout>
 }
 
 export default page;
