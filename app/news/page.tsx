@@ -1,6 +1,7 @@
 import React from "react";
 import NewsComponent from "./NewsComponent";
 import { Metadata } from "next";
+import HomeLayout from "@/components/layouts/HomeLayout/HomeLayout";
 
 export const metadata: Metadata = {
   title: "VMM Recruitment News 2025 | Vishal Mega Mart Latest Updates",
@@ -8,7 +9,9 @@ export const metadata: Metadata = {
 };
 
 function page() {
-  return <NewsComponent />;
+  return <HomeLayout>
+    <NewsComponent />;
+  </HomeLayout>
 }
 
 export default page;

@@ -14,6 +14,7 @@
     "firebase": "^11.7.3",
     "html2canvas": "^1.4.1",
     "jspdf": "^3.0.1",
+    "lucide-react": "^0.511.0",
     "next": "15.3.2",
     "next-sitemap": "^4.2.3",
     "react": "^19.0.0",
