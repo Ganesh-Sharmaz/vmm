@@ -170,12 +170,19 @@ function NewsComponent() {
       }
 
       const currentDate = new Date().toISOString();
+      
+      // Validate that dates are present and valid
+      if (!currentDate) {
+        setError("Date information is missing. Please try again.");
+        return;
+      }
 
       // Add to news collection
       await addDoc(newsRef, {
         id: newsId,
         title: title.trim(),
         date: currentDate,
+        lastUpdated: currentDate,
         content: "" // Initialize with empty content
       });
 
@@ -183,7 +190,8 @@ function NewsComponent() {
       await addDoc(newsListingRef, {
         id: newsId,
         title: title.trim(),
-        date: currentDate
+        date: currentDate,
+        lastUpdated: currentDate
       });
 
       setSuccess("News article created successfully!");
