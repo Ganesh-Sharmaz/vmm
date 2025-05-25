@@ -89,8 +89,8 @@ const NewsPage = ({ newsId, initialData: initialDataProp }: Props) => {
       return { isValid: false, message: "Content is required", charCount, wordCount: 0 };
     }
     
-    if (charCount > 3000) {
-      return { isValid: false, message: "Content cannot exceed 3000 characters", charCount, wordCount };
+    if (charCount > 10000) {
+      return { isValid: false, message: "Content cannot exceed 10000 characters", charCount, wordCount };
     }
     
     if (charCount < 50) {
@@ -297,7 +297,7 @@ const NewsPage = ({ newsId, initialData: initialDataProp }: Props) => {
               </div>
               <div className="bg-gray-50 rounded-xl p-3">
                 <p className="text-xs font-medium text-gray-500 mb-1">CONTENT</p>
-                <p className="text-sm font-medium text-gray-900">{validation.content.charCount}/3000</p>
+                <p className="text-sm font-medium text-gray-900">{validation.content.charCount}/10000</p>
               </div>
               <div className="bg-gray-50 rounded-xl p-3">
                 <p className="text-xs font-medium text-gray-500 mb-1">STATUS</p>
@@ -405,7 +405,7 @@ const NewsPage = ({ newsId, initialData: initialDataProp }: Props) => {
                         } 
                         focus:outline-none placeholder-gray-400`}
                       placeholder="Write your article content here. Use paragraphs to organize your thoughts and make the content easy to read..."
-                      maxLength={3000}
+                      maxLength={10000}
                       style={{ minHeight: '300px' }}
                     />
                     <div className="mt-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-0">
@@ -427,10 +427,10 @@ const NewsPage = ({ newsId, initialData: initialDataProp }: Props) => {
                         </p>
                       )}
                       <span className={`text-xs ${
-                        validation.content.charCount > 2800 ? 'text-orange-600' :
-                        validation.content.charCount > 3000 ? 'text-red-600' : 'text-gray-400'
+                        validation.content.charCount > 8000 ? 'text-orange-600' :
+                        validation.content.charCount > 10000 ? 'text-red-600' : 'text-gray-400'
                       }`}>
-                        {validation.content.charCount}/3000
+                        {validation.content.charCount}/10000
                       </span>
                     </div>
                   </div>
@@ -560,7 +560,7 @@ const NewsPage = ({ newsId, initialData: initialDataProp }: Props) => {
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-gray-600">Content Length</span>
                     <span className="text-sm font-medium text-gray-900">
-                      {validation.content.charCount}/3000
+                      {validation.content.charCount}/10000
                     </span>
                   </div>
                   
