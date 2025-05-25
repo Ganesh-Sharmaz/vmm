@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { getFirestore, doc, updateDoc, collection, query, where, getDocs } from "firebase/firestore";
 import { app } from "@/app/firebaseConfig";
 import { useRouter } from "next/navigation";
-import { AlertCircle, CheckCircle2, Save, FileText, Eye, ArrowLeft, Calendar, Hash, BarChart3, Info } from "lucide-react";
+import { AlertCircle, CheckCircle2, Save, FileText, Eye, ArrowLeft, Calendar, Hash, BarChart3 } from "lucide-react";
 
 interface Props {
   newsId: string;
