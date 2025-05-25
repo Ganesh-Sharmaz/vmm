@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { collection, getDocs, addDoc, query, where, getFirestore } from "firebase/firestore";
 import { app } from "@/app/firebaseConfig";
 import { AlertCircle, CheckCircle2, Clock, FileText, Hash } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 type NewsItem = {
   id: string;
@@ -25,6 +26,7 @@ type ValidationState = {
 };
 
 function NewsComponent() {
+  const router = useRouter();
   const [newsId, setNewsId] = useState("");
   const [title, setTitle] = useState("");
   const [error, setError] = useState("");
@@ -173,7 +175,8 @@ function NewsComponent() {
       await addDoc(newsRef, {
         id: newsId,
         title: title.trim(),
-        date: currentDate
+        date: currentDate,
+        content: "" // Initialize with empty content
       });
 
       // Add to newsListing collection
@@ -191,12 +194,19 @@ function NewsComponent() {
         title: { isValid: false, message: "", isDirty: false, wordCount: 0 }
       });
       fetchNews();
+      
+      // Redirect to the edit page
+      router.push(`/admin/news/${newsId}`);
     } catch (err) {
       setError("Unable to create news article. Please try again.");
       console.error("Error creating news:", err);
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleArticleClick = (newsId: string) => {
+    router.push(`/admin/news/${newsId}`);
   };
 
   return (
@@ -365,8 +375,12 @@ function NewsComponent() {
               ) : newsList.length > 0 ? (
                 <div className="space-y-4 max-h-96 overflow-y-auto">
                   {newsList.slice(0, 10).map((news) => (
-                    <div key={news.id} className="p-4 border border-gray-100 rounded-xl hover:border-gray-200 transition-colors">
-                      <h4 className="font-medium text-gray-900 text-sm leading-relaxed mb-2 line-clamp-2">
+                    <div 
+                      key={news.id} 
+                      onClick={() => handleArticleClick(news.id)}
+                      className="p-4 border border-gray-100 rounded-xl hover:border-gray-200 transition-all duration-200 cursor-pointer group"
+                    >
+                      <h4 className="font-medium text-gray-900 text-sm leading-relaxed mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
                         {news.title}
                       </h4>
                       <div className="flex items-center gap-2 text-xs text-gray-500">
